@@ -103,6 +103,7 @@ void button_test(void)
 		}
 	}
 }
+//task 3
 void SEG_TEST_2counter(void)
 {  
 	while(1)
@@ -132,6 +133,7 @@ void SEG_TEST_2counter(void)
 		
 	}
 }
+//task 2
 void SEG_TEST_traffic(void)
 {
 	LED_init(Green_Led_port,Green_Led_pin);
@@ -189,6 +191,7 @@ void SEG_TEST_traffic(void)
 		
 	}
 }
+//task 1
 void SEG_TEST_BIN_AND_DIS(void)
 {
 	while (1)
@@ -210,6 +213,7 @@ void SEG_TEST_BIN_AND_DIS(void)
 	}
 	
 }
+//task 4
 void LCD_TEST_sin(void)
 {
 	LCD_voidInt ();
