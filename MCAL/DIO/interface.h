@@ -6,45 +6,14 @@
  */ 
 
 
-#ifndef interface_h_
-#define interface_h_
+#ifndef INTERFACE_H_
+#define INTERFACE_H_
+
+
 #include "../../LIB/type.h"
+#include "../DIO/config.h"
 
-// driver macros
-#define PORT_A (0x01)
-
-#define PORT_B (0x02)
-
-#define PORT_C (0x03)
-
-#define PORT_D (0x04)
-
-#define  PORT_OUT (0xff)
-
-#define  PORT_IN (0x00)
-
-//direction def
-#define IN 0
-
-#define OUT 1
-
-//value def
-#define LOW 0
-
-#define HIGH 1
-
-// pin def
-#define pin0 (0x00)
-#define pin1 (0x01)
-#define pin2 (0x02)
-#define pin3 (0x03)
-#define pin4 (0x04)
-#define pin5 (0x05)
-#define pin6 (0x06)
-#define pin7 (0x07)
-
-
-
+#include "../DIO/config.h"
 
 void DIO_vidset_Port_Direction (u8 copy_u8portID,u8 copy_u8PortDir);
 void DIO_vidset_Port_Value (u8 copy_u8portID,u8 copy_u8Portvalue);
@@ -55,9 +24,4 @@ void DIO_vidTogel_Pin_Value (u8 copy_u8portID,u8 copy_u8pinID);
 
 
 
-
-
-
-
-
-#endif
+#endif /* INTERFACE_H_ */

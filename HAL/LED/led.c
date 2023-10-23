@@ -5,6 +5,8 @@
  *  Author: zaher
  */ 
 #include "../LED/Led.h"
+
+//the led on function is used to choose led  pin direction using dio
 void LED_init(u8 ledPort, u8 ledPin)
 {
 	 DIO_vidset_Pin_Direction (ledPort ,ledPin,OUT);

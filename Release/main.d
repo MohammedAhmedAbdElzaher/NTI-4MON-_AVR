@@ -1,12 +1,15 @@
 main.d main.o: .././main.c .././MCAL/DIO/Privet\ .h \
  .././MCAL/DIO/../../LIB/type.h .././../project/MCAL/DIO/interface.h \
- .././../project/MCAL/DIO/../../LIB/type.h .././../project/HAL/LED/Led.h \
+ .././../project/MCAL/DIO/../../LIB/type.h \
+ .././../project/MCAL/DIO/../DIO/config.h .././../project/HAL/LED/Led.h \
  .././../project/HAL/LED/../../MCAL/DIO/interface.h \
  .././../project/HAL/LED/../../MCAL/DIO/Privet\ .h \
  .././../project/HAL/LED/../../LIB/bit\ math.h \
+ .././../project/HAL/LED/../LED/Ied_config.h \
  .././../project/HAL/button/button.h \
  .././../project/HAL/button/../../MCAL/DIO/interface.h \
  .././../project/HAL/button/../../MCAL/DIO/Privet\ .h \
+ .././../project/HAL/button/../button/BUTTON_config.h \
  .././../project/HAL/LCD/LCD.h \
  .././../project/HAL/LCD/../../LIB/bit\ math.h \
  .././../project/HAL/LCD/../../LIB/type.h \
@@ -27,6 +30,8 @@ main.d main.o: .././main.c .././MCAL/DIO/Privet\ .h \
 
 .././../project/MCAL/DIO/../../LIB/type.h:
 
+.././../project/MCAL/DIO/../DIO/config.h:
+
 .././../project/HAL/LED/Led.h:
 
 .././../project/HAL/LED/../../MCAL/DIO/interface.h:
@@ -35,11 +40,15 @@ main.d main.o: .././main.c .././MCAL/DIO/Privet\ .h \
 
 .././../project/HAL/LED/../../LIB/bit\ math.h:
 
+.././../project/HAL/LED/../LED/Ied_config.h:
+
 .././../project/HAL/button/button.h:
 
 .././../project/HAL/button/../../MCAL/DIO/interface.h:
 
 .././../project/HAL/button/../../MCAL/DIO/Privet\ .h:
+
+.././../project/HAL/button/../button/BUTTON_config.h:
 
 .././../project/HAL/LCD/LCD.h:
 

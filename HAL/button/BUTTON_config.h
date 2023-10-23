@@ -1,13 +1,15 @@
 /*
- * config.h
+ * BUTTON_config.h
  *
- * Created: 10/23/2023 4:09:46 AM
+ * Created: 10/23/2023 4:35:46 AM
  *  Author: zaher
  */ 
 
 
-#ifndef CONFIG_H_
-#define CONFIG_H_
+#ifndef BUTTON_CONFIG_H_
+#define BUTTON_CONFIG_H_
+
+
 
 // driver macros
 #define PORT_A (0x01)
@@ -41,9 +43,10 @@
 #define pin5 (0x05)
 #define pin6 (0x06)
 #define pin7 (0x07)
+// button port&pin
+#define BUTTON_PORT PORT_D
+#define BUTTON_1_PIN  pin7
+#define BUTTON_2_PIN  pin6
+#define BUTTON_3_PIN  pin5
 
-
-
-
-
-#endif /* CONFIG_H_ */
+#endif /* BUTTON_CONFIG_H_ */

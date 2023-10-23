@@ -95,3 +95,49 @@ void LCD_voidGoToPosition(u8 Copy_u8RowNum,u8 Copy_u8ColNum)
 	u8 arr[4] ={0x80,0xC0,0x94,0xD4};
 	LCD_voidsendcommand(arr[Copy_u8RowNum] + Copy_u8ColNum);
 }
+void LCD_voidDisplayNumber(s32 Copy_s32Number)
+{
+	if(Copy_s32Number == 0)
+	{
+		LCD_voidSendData('0');
+	}
+	else if(Copy_s32Number > 0  )
+	{
+		s8 i=0;
+		u8 Copy_u8Remander = 0;
+		u8 arr[10] = {0};
+		while(Copy_s32Number != 0)
+		{
+			Copy_u8Remander = Copy_s32Number % 10;
+			arr[i] = Copy_u8Remander;
+			i++;
+			Copy_s32Number /= 10;
+		}
+		i--;
+		while(i >= 0)
+		{
+			LCD_voidSendData(arr[i] + 48);
+			i--;
+		}
+		
+	}
+}
+void LCD_voidDisplaySpecialChar(u8* Ptr_u8PtrChar,u8 CGRam_index,u8 Copy_u8RowNum,u8 Copy_u8ColNum)
+{
+	LCD_voidGoToPosition( Copy_u8RowNum, Copy_u8ColNum);
+	LCD_voidSendData(CGRam_index);
+	u8 Local_u8address;
+	u8 Local_u8Index;
+	if (CGRam_index < 8)
+	{
+		Local_u8address= CGRam_index * 8;
+		Local_u8address=SET_BIT(Local_u8address,6);
+		LCD_voidsendcommand(Local_u8address);
+		for(Local_u8Index = 0;Local_u8Index < 8;Local_u8Index++)
+		{
+			LCD_voidSendData(Ptr_u8PtrChar[Local_u8Index]);
+		}
+	}
+	LCD_voidsendcommand(0x02);
+}
+

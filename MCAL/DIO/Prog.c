@@ -11,6 +11,7 @@
 #include "../../LIB/type.h"
 #include "../../LIB/bit math.h"
 
+// choose the direction of the port out or in
 void DIO_vidset_Port_Direction (u8 copy_u8portID,u8 copy_u8PortDir)
 {
 			switch(copy_u8portID) {
@@ -34,6 +35,8 @@ void DIO_vidset_Port_Direction (u8 copy_u8portID,u8 copy_u8PortDir)
 
 				
 }
+
+// choose the value of the port 0 or 1
 void DIO_vidset_Port_Value (u8 copy_u8portID,u8 copy_u8Portvalue)
 {
 		switch(copy_u8portID) {
@@ -54,6 +57,8 @@ void DIO_vidset_Port_Value (u8 copy_u8portID,u8 copy_u8Portvalue)
 			break;
 		}
 }
+
+// choose the direction of the pin out or in
 void DIO_vidset_Pin_Direction (u8 copy_u8portID,u8 copy_u8pinID,u8 copy_u8pindir)
 {
 	if(copy_u8pindir == OUT && copy_u8pinID <= pin7)
@@ -107,6 +112,8 @@ void DIO_vidset_Pin_Direction (u8 copy_u8portID,u8 copy_u8pinID,u8 copy_u8pindir
 }
 	}
 }
+
+// choose the value of the pin 0 or 1
 void DIO_vidset_Pin_Value (u8 copy_u8portID,u8 copy_u8pinID,u8 copy_u8Pinvalue)
 {
 	
@@ -168,7 +175,7 @@ void DIO_vidset_Pin_Value (u8 copy_u8portID,u8 copy_u8pinID,u8 copy_u8Pinvalue)
 	
 }
 	
-	
+	// read the value of the pin 0 or 1
 void DIO_vidGET_Pin_Value (u8 copy_u8portID,u8 copy_u8pinID,u8 *value)
 {
 	
@@ -199,6 +206,8 @@ void DIO_vidGET_Pin_Value (u8 copy_u8portID,u8 copy_u8pinID,u8 *value)
 		
 	}
 }
+
+// togel the value of the pin 0 or 1
 void DIO_vidTogel_Pin_Value (u8 copy_u8portID,u8 copy_u8pinID)
 {
 	if( copy_u8pinID <=pin7)

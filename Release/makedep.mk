@@ -6,6 +6,8 @@ HAL\BCD_SEG\BCD_SEG.c
 
 HAL\button\buttonc.c
 
+HAL\Keypad\Prog.c
+
 HAL\LCD\LCD.c
 
 HAL\LED\led.c

@@ -23,6 +23,14 @@ void SEG_TEST_traffic(void);
 void SEG_TEST_2counter(void);
 void LCD_TEST(void);
 void LCD_TEST_sin(void);
+void KEYBAD_TEST(void);
+void KEYBAD_LCD_TEST(void);
+void KEYBAD_calc_TEST(void);
+void KEYBAD_NAME_SW_TEST(void);
+
+
+
+
 int main(void)
 {
     /* Replace with your application code */
@@ -30,7 +38,7 @@ int main(void)
 	
 	
 	
-	SEG_TEST_BIN_AND_DIS();
+	KEYBAD_NAME_SW_TEST();
 
 
 
@@ -87,19 +95,45 @@ void button_test(void)
 {
 	
 	LED_init(Blue_Led_port,Blue_Led_pin);
-	BUTTON_init(PORT_D,pin7);
-	u8 b_S;
+	LED_init(Green_Led_port,Green_Led_pin);
+	LED_init(Yellow_Led_port,Yellow_Led_pin);
+	LED_init(Red_Led_port,Red_Led_pin);
+
+	BUTTON_init(BUTTON_PORT,BUTTON_1_PIN);
+	BUTTON_init(BUTTON_PORT,BUTTON_2_PIN);
+	BUTTON_init(BUTTON_PORT,BUTTON_3_PIN);
+	u8 b_S_1=0,b_S_2=0,b_S_3=0;
 	LED_on(Blue_Led_port,Blue_Led_pin);
 	while(1)
 	{
-		BUTTON_read(PORT_D,pin7,&b_S);
+		BUTTON_read(BUTTON_PORT,BUTTON_1_PIN,&b_S_1);
+		_delay_ms(50);
+		BUTTON_read(BUTTON_PORT,BUTTON_2_PIN,&b_S_2);
+		_delay_ms(50);
+		BUTTON_read(BUTTON_PORT,BUTTON_3_PIN,&b_S_3);
+		_delay_ms(50);
 		
-		if (b_S > 0)
+		LED_on(Blue_Led_port,Blue_Led_pin);
+		if (b_S_1 == 0)
 		{
-				LED_off(Blue_Led_port,Blue_Led_pin);
+			LED_off(Blue_Led_port,Blue_Led_pin);
+			LED_off(Yellow_Led_port,Yellow_Led_pin);
+			LED_off(Red_Led_port,Red_Led_pin);
 			LED_on(Green_Led_port,Green_Led_pin);
-		}else {
+		} if (b_S_2 == 0){
+			LED_off(Blue_Led_port,Blue_Led_pin);
+			LED_on(Yellow_Led_port,Yellow_Led_pin);
+			LED_off(Red_Led_port,Red_Led_pin);
 			LED_off(Green_Led_port,Green_Led_pin);
+		} if (b_S_3 == 0)
+		{
+			LED_off(Blue_Led_port,Blue_Led_pin);
+			LED_off(Yellow_Led_port,Yellow_Led_pin);
+			LED_on(Red_Led_port,Red_Led_pin);
+			LED_off(Green_Led_port,Green_Led_pin);
+		}
+		else {
+			LED_on(Blue_Led_port,Blue_Led_pin);
 		}
 	}
 }
@@ -270,3 +304,158 @@ void LCD_TEST(void)
 	 	LCD_voidGoToPosition(3,0);
 	 	LCD_voidSendString("symk3");
 }
+void KEYBAD_TEST(void)
+{
+	LCD_voidInt ();
+	KeyPad_INT();
+	LCD_voidSendString("start///////");
+	u8 v=0;
+	while(1)
+	{
+	 v=KeyPad_READ();
+	 
+	if(v>0)
+	{
+		LCD_voidDisplayNumber(v);
+		v=0;
+	}
+	//_delay_ms(1000);
+	}
+}
+void KEYBAD_LCD_TEST (void)
+{
+	
+	KeyPad_INT();
+	u8 v=5;
+	
+	while(1)
+	{
+		v=KeyPad_READ();
+		
+		BCD_SEG_vidWriteNumber(v);
+		//_delay_ms(1000);
+	}
+}
+void KEYBAD_calc_TEST(void)
+{
+	LCD_voidInt ();
+	KeyPad_INT();
+	LCD_voidGoToPosition(0,5);
+	LCD_voidSendString("CALC");
+	u8 v=0,NUM_t1=0,x=0,NUM_t2=0,y=1,op=0;
+	u8 ANS=0;
+	while(1)
+	{
+		v=KeyPad_READ();
+		if (x==0 && v<=9)
+		{
+			NUM_t1=v;
+			x=1;
+		}if (x==1 && v<=9)
+		{
+			NUM_t2=v;
+			x=0;
+		}
+		
+		
+		if(v=='/'||v=='x'||v=='+'||v=='-')
+		{
+			LCD_voidSendData(v);
+			op=v;
+			
+		}
+		else if (v =='=')
+		{
+			LCD_voidSendData(v);
+			LCD_voidDisplayNumber(ANS);
+			ANS=0;
+			
+			
+
+	}else if (v =='c')
+	{
+		
+		LCD_voidClearDisplay();
+		LCD_voidGoToPosition(0,5);
+		LCD_voidSendString("CALC");
+		LCD_voidGoToPosition(1,6);
+		
+
+	}else if (v != 15)
+		{
+			LCD_voidDisplayNumber(v);
+		}
+		switch (op)
+		{
+			
+			case '+':
+			ANS=NUM_t1 + NUM_t2;
+			op=0;
+			break;
+			
+			case '-':
+			ANS=NUM_t1 - NUM_t2;
+			op=0;
+			break;
+			
+			case 'x':
+			ANS=NUM_t1 * NUM_t2;
+			op=0;
+			break;
+			
+			case '/':
+			ANS=NUM_t1 / NUM_t2;
+			op=0;
+			break;
+			
+			default:
+			
+			break;
+		}
+		
+		
+		
+	}
+}
+void KEYBAD_NAME_SW_TEST(void)
+{
+	u8 v=0;
+	
+	LCD_voidInt ();
+	KeyPad_INT();
+	
+	while(1)
+	{
+		v=KeyPad_READ();
+		if (v != 15 )
+		{
+			switch (v)
+			{
+				case 1:
+				LCD_voidGoToPosition(0,0);
+				LCD_voidSendString("Mohammed");
+				break;
+				
+				case 4:
+				LCD_voidGoToPosition(1,0);
+				LCD_voidSendString("Ahmed");
+				break;
+				
+				case 7:
+				LCD_voidGoToPosition(2,0);
+				LCD_voidSendString("Abd Elzaher");
+				break;
+				
+				case 'c':
+				LCD_voidClearDisplay();
+				break;
+				default:
+				break;
+				
+				
+			}
+		}
+	}
+}
+
+

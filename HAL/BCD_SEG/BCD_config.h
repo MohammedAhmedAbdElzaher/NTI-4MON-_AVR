@@ -1,13 +1,14 @@
 /*
- * config.h
+ * BCD_config.h
  *
- * Created: 10/23/2023 4:09:46 AM
+ * Created: 10/23/2023 4:35:08 AM
  *  Author: zaher
  */ 
 
 
-#ifndef CONFIG_H_
-#define CONFIG_H_
+#ifndef BCD_CONFIG_H_
+#define BCD_CONFIG_H_
+
 
 // driver macros
 #define PORT_A (0x01)
@@ -43,7 +44,4 @@
 #define pin7 (0x07)
 
 
-
-
-
-#endif /* CONFIG_H_ */
+#endif /* BCD_CONFIG_H_ */

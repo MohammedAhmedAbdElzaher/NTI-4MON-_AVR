@@ -12,13 +12,8 @@
 
 #include "../../MCAL/DIO/interface.h"
 #include "../../MCAL/DIO/Privet .h"
+#include "../button/BUTTON_config.h"
 
-
-#define BUTTON_PORT PORT_D
-#define BUTTON_PIN  pin7
-//button stat
-#define button_stat_HIGH 1
-#define button_stat_LOW  0
 
 
 

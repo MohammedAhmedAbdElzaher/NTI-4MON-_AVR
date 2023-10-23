@@ -155,6 +155,9 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="HAL\BCD_SEG\BCD_config.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="HAL\BCD_SEG\BCD_SEG.c">
       <SubType>compile</SubType>
     </Compile>
@@ -167,6 +170,21 @@
     <Compile Include="HAL\button\buttonc.c">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="HAL\button\BUTTON_config.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\Keypad\config.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\Keypad\keypad_interfaces.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\Keypad\keypad_privet.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\Keypad\Prog.c">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="HAL\LCD\configration.h">
       <SubType>compile</SubType>
     </Compile>
@@ -177,6 +195,9 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="HAL\LCD\LCD.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\LED\Ied_config.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="HAL\LED\led.c">
@@ -197,10 +218,10 @@
     <Compile Include="MCAL\DIO\config.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="MCAL\DIO\Prog.c">
+    <Compile Include="MCAL\DIO\interface.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="MCAL\DIO\interface.h">
+    <Compile Include="MCAL\DIO\Prog.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="MCAL\DIO\Privet .h">
@@ -214,6 +235,7 @@
     <Folder Include="HAL\button" />
     <Folder Include="HAL\BCD_SEG" />
     <Folder Include="HAL\LCD" />
+    <Folder Include="HAL\Keypad" />
     <Folder Include="LIB" />
     <Folder Include="MCAL" />
     <Folder Include="MCAL\DIO" />

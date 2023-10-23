@@ -15,18 +15,7 @@
 #include "../../MCAL/DIO/interface.h"
 #include "../../MCAL/DIO/Privet .h"
 #include "../../LIB/bit math.h"
-
-
-
-// Three LEDs for cars
-#define Green_Led_port PORT_A
-#define Green_Led_pin  pin4
-#define Yellow_Led_port PORT_A
-#define Yellow_Led_pin  pin6
-#define Red_Led_port PORT_B
-#define Red_Led_pin  pin7
-#define Blue_Led_port PORT_A
-#define Blue_Led_pin  pin5
+#include "../LED/Ied_config.h"
 
 // internal driver typedefs
 
